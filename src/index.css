@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background-image: url(./assets/bg.jpg);
+    background-size: cover;
+    font-family: "Acme", sans-serif;
+    color: rgb(80, 38, 19);
+    font-weight: bold;
+}
+
+.container {
+    background-color: sienna;
+    min-width: 10vw;
+    max-width: 40vw;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 30vw;
+    border: 5px solid rgb(80, 38, 19);
+    padding: 30px;
+    border-radius: 35px;
+}
+
+.btn {
+    display: inline-block;
+    color: rgb(80, 38, 19);
+    border: 2px solid rgb(80, 38, 19);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bolder;
+}
+
+.form-control input,
+.input {
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 17px;
+    background-color: rgb(249 244 243)
+}
+
+label {
+    color: rgb(80, 38, 19);
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.messages {
+    display: flex;
+    justify-content: center;
+}
+
+.error {
+    display: block;
+    background-color: red;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(222 214 211);
+}
+
+h2,
+.loginbtn {
+    text-align: center;
 }
