@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const Login = () => {
   const nav = useNavigate();
@@ -51,6 +52,9 @@ const Login = () => {
       </div>
     );
   };
+  const register = () => {
+    nav("/Signup");
+  };
 
   //Sending the user to the users table in the db
   const login = async () => {
@@ -59,21 +63,24 @@ const Login = () => {
       password: password,
     };
 
-    const res = await fetch("http://127.0.0.1:3000/api/user/auth/login", {
+    const res = await fetch("http://127.0.0.1:3030/api/user/auth/login", {
       method: "POST",
       headers: {
-        Accept: "application/form-data",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(_data),
     });
     const result = await res.json();
-    window.localStorage.setItem("Bearer", result.access_token);
-    nav("/ViewSurveys");
+    console.log(result.token);
+    window.localStorage.setItem("Bearer", result.token);
+    var user = jwt_decode(result.token);
+    window.localStorage.setItem("user_id", user._id);
+    console.log(user);
+    // nav("/Signup");
   };
 
   return (
-    <div className="form">
+    <div className="container">
       <div>
         <h1>Sign in Here</h1>
       </div>
@@ -102,11 +109,17 @@ const Login = () => {
         />
 
         <div className="loginbtn">
-          <Button color={"#859eb8"} text={"Login"} onClick={handleSubmit} />
+          <Button
+            color={"rgb(222 214 211)"}
+            text={"Login"}
+            onClick={handleSubmit}
+          />
         </div>
         <div>
           <h1>Don't Have an account?</h1>
-          <h2>Register</h2>
+          <h2 role="button" onClick={() => register()}>
+            Register
+          </h2>
         </div>
       </form>
     </div>

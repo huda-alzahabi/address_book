@@ -82,7 +82,7 @@ const Signup = () => {
       password: password,
     };
 
-    await fetch("http://127.0.0.1:3000/api/user/auth/register", {
+    await fetch("http://127.0.0.1:3030/api/user/auth/register", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -93,7 +93,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="form">
+    <div className="container">
       <div>
         <h1>User Registration</h1>
       </div>
@@ -132,8 +132,13 @@ const Signup = () => {
           placeholder={"Password"}
           type="password"
         />
-
-        <Button color={"purple"} text={"Signup"} onClick={handleSubmit} />
+        <div className="loginbtn">
+          <Button
+            color={"rgb(222 214 211)"}
+            text={"Signup"}
+            onClick={handleSubmit}
+          />
+        </div>
       </form>
     </div>
   );
