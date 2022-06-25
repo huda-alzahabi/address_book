@@ -85,3 +85,27 @@ h2,
 .loginbtn {
     text-align: center;
 }
+
+table {
+    border-collapse: collapse;
+    margin: 5%;
+    width: 80%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+th,
+td {
+    font-size: larger;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    color: maroon;
+}
+
+td {
+    font-weight: lighter;
+}
+
+tr:hover {
+    background-color: rgb(222 214 211);
+}
