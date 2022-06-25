@@ -185,7 +185,7 @@ const AddContact = () => {
           </div>
           <h2
             role="button"
-            style={{ color: "#C29876", cursor: "pointer" }}
+            style={{ color: " rgb(109, 93, 61)", cursor: "pointer" }}
             onClick={() => backtoContacts()}
           >
             Back

@@ -58,7 +58,7 @@ const ViewContacts = () => {
       </table>
       <div className="centerbtn">
         <Button
-          color={"rgb(222 214 211)"}
+          color={"#916f5d"}
           text={"Add contact"}
           onClick={() => addContact()}
         />
