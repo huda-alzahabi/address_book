@@ -82,7 +82,7 @@ h1 {
 }
 
 h2,
-.loginbtn {
+.centerbtn {
     text-align: center;
 }
 
@@ -90,7 +90,8 @@ table {
     border-collapse: collapse;
     margin: 5%;
     width: 80%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    background-color: rgb(222 214 211);
 }
 
 th,
@@ -107,5 +108,15 @@ td {
 }
 
 tr:hover {
-    background-color: rgb(222 214 211);
+    background-color: wheat;
+}
+
+.contactsbg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(0, 0, 0.1, 0.5), rgba(0, 0, 0, 0.2)), url(./assets/vintage.jpg);
+    background-size: cover;
 }
