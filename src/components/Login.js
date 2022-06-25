@@ -80,7 +80,7 @@ const Login = () => {
   };
 
   return (
-    <div className="background">
+    <div className="background" style={{ bottom: "0" }}>
       <div className="container ">
         <div>
           <h1>Sign in Here</h1>
@@ -110,11 +110,7 @@ const Login = () => {
           />
 
           <div className="centerbtn">
-            <Button
-              color={"rgb(222 214 211)"}
-              text={"Login"}
-              onClick={handleSubmit}
-            />
+            <Button color={"#C29876"} text={"Login"} onClick={handleSubmit} />
           </div>
           <div>
             <h1>Don't Have an account?</h1>

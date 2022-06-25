@@ -9,7 +9,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     left: 0;
     background-image: linear-gradient(rgba(0, 0, 0.1, 0.5), rgba(0, 0, 0, 0.2)), url(./assets/bg.jpg);
     background-size: cover;
@@ -22,13 +21,13 @@ body {
 }
 
 .container {
-    background-color: sienna;
+    background-color: rgb(80 38 19);
     min-width: 10vw;
     max-width: 40vw;
     margin: 70px auto;
     overflow: auto;
     min-height: 30vw;
-    border: 5px solid rgb(80, 38, 19);
+    border: 5px solid #C29876;
     padding: 30px;
     border-radius: 35px;
 }
@@ -58,7 +57,7 @@ body {
 }
 
 label {
-    color: rgb(80, 38, 19);
+    color: black;
     font-weight: bold;
     font-size: x-large;
 }
@@ -78,7 +77,7 @@ label {
 
 h1 {
     text-align: center;
-    color: rgb(222 214 211);
+    color: #C29876;
 }
 
 h2,
@@ -117,6 +116,6 @@ tr:hover {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(rgba(0, 0, 0.1, 0.5), rgba(0, 0, 0, 0.2)), url(./assets/vintage.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0.1, 0.5), rgba(0, 0, 0, 0.2)), url(./assets/img.jpg);
     background-size: cover;
 }

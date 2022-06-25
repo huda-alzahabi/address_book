@@ -138,15 +138,11 @@ const Signup = () => {
             type="password"
           />
           <div className="centerbtn">
-            <Button
-              color={"rgb(222 214 211)"}
-              text={"Signup"}
-              onClick={handleSubmit}
-            />
+            <Button color={"#C29876"} text={"Signup"} onClick={handleSubmit} />
           </div>
           <h2
             role="button"
-            style={{ color: "rgb(222 214 211)", cursor: "pointer" }}
+            style={{ color: "#C29876", cursor: "pointer" }}
             onClick={() => backtoMain()}
           >
             Back
