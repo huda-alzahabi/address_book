@@ -1,8 +1,9 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 const Signup = () => {
+  const nav = useNavigate();
   // States for registration
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -73,6 +74,9 @@ const Signup = () => {
       </div>
     );
   };
+  const backtoMain = () => {
+    nav("/");
+  };
 
   //Sending the user to the users table in the db
   const addUser = async () => {
@@ -139,6 +143,13 @@ const Signup = () => {
             onClick={handleSubmit}
           />
         </div>
+        <h2
+          role="button"
+          style={{ color: "rgb(222 214 211)", cursor: "pointer" }}
+          onClick={() => backtoMain()}
+        >
+          Back
+        </h2>
       </form>
     </div>
   );

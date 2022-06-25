@@ -117,7 +117,11 @@ const Login = () => {
         </div>
         <div>
           <h1>Don't Have an account?</h1>
-          <h2 role="button" onClick={() => register()}>
+          <h2
+            role="button"
+            style={{ cursor: "pointer" }}
+            onClick={() => register()}
+          >
             Register
           </h2>
         </div>
