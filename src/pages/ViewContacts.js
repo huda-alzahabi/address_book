@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
 const ViewContacts = () => {
+  const nav = useNavigate();
   const [contacts, setContacts] = useState([]);
   const user_id = localStorage.getItem("user_id");
   const getContacts = async () => {
@@ -20,10 +22,13 @@ const ViewContacts = () => {
     };
     getData();
   }, []);
-  console.log(contacts);
+
+  const addContact = () => {
+    nav("/AddContact");
+  };
 
   return (
-    <div>
+    <div className="contactsbg">
       <table>
         <tr>
           <th>Full Name</th>
@@ -51,11 +56,13 @@ const ViewContacts = () => {
           </tr>
         ))}
       </table>
-      <Button
-        color={"rgb(222 214 211)"}
-        text={"Add contact"}
-        onClick={addContact()}
-      />
+      <div className="centerbtn">
+        <Button
+          color={"rgb(222 214 211)"}
+          text={"Add contact"}
+          onClick={() => addContact()}
+        />
+      </div>
     </div>
   );
 };
