@@ -109,7 +109,7 @@ const Login = () => {
             type="password"
           />
 
-          <div className="loginbtn">
+          <div className="centerbtn">
             <Button
               color={"rgb(222 214 211)"}
               text={"Login"}
