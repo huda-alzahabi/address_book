@@ -97,60 +97,62 @@ const Signup = () => {
   };
 
   return (
-    <div className="container">
-      <div>
-        <h1>User Registration</h1>
-      </div>
-
-      {/* Calling to the methods */}
-      <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
-
-      <form>
-        {/* Labels and inputs for form data */}
-        <label className="label">Name</label>
-        <input
-          onChange={handleName}
-          className="input"
-          value={name}
-          placeholder={"Full Name"}
-          type="text"
-        />
-
-        <label className="label">Email</label>
-        <input
-          onChange={handleEmail}
-          className="input"
-          value={email}
-          placeholder={"Email"}
-          type="email"
-        />
-
-        <label className="label">Password</label>
-        <input
-          onChange={handlePassword}
-          className="input"
-          value={password}
-          placeholder={"Password"}
-          type="password"
-        />
-        <div className="loginbtn">
-          <Button
-            color={"rgb(222 214 211)"}
-            text={"Signup"}
-            onClick={handleSubmit}
-          />
+    <div className="background">
+      <div className="container">
+        <div>
+          <h1>User Registration</h1>
         </div>
-        <h2
-          role="button"
-          style={{ color: "rgb(222 214 211)", cursor: "pointer" }}
-          onClick={() => backtoMain()}
-        >
-          Back
-        </h2>
-      </form>
+
+        {/* Calling to the methods */}
+        <div className="messages">
+          {errorMessage()}
+          {successMessage()}
+        </div>
+
+        <form>
+          {/* Labels and inputs for form data */}
+          <label className="label">Name</label>
+          <input
+            onChange={handleName}
+            className="input"
+            value={name}
+            placeholder={"Full Name"}
+            type="text"
+          />
+
+          <label className="label">Email</label>
+          <input
+            onChange={handleEmail}
+            className="input"
+            value={email}
+            placeholder={"Email"}
+            type="email"
+          />
+
+          <label className="label">Password</label>
+          <input
+            onChange={handlePassword}
+            className="input"
+            value={password}
+            placeholder={"Password"}
+            type="password"
+          />
+          <div className="loginbtn">
+            <Button
+              color={"rgb(222 214 211)"}
+              text={"Signup"}
+              onClick={handleSubmit}
+            />
+          </div>
+          <h2
+            role="button"
+            style={{ color: "rgb(222 214 211)", cursor: "pointer" }}
+            onClick={() => backtoMain()}
+          >
+            Back
+          </h2>
+        </form>
+      </div>
     </div>
   );
 };

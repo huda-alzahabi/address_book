@@ -5,9 +5,17 @@
     padding: 0;
 }
 
-body {
-    background-image: url(./assets/bg.jpg);
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(0, 0, 0.1, 0.5), rgba(0, 0, 0, 0.2)), url(./assets/bg.jpg);
     background-size: cover;
+}
+
+body {
     font-family: "Acme", sans-serif;
     color: rgb(80, 38, 19);
     font-weight: bold;
@@ -17,7 +25,7 @@ body {
     background-color: sienna;
     min-width: 10vw;
     max-width: 40vw;
-    margin: 30px auto;
+    margin: 70px auto;
     overflow: auto;
     min-height: 30vw;
     border: 5px solid rgb(80, 38, 19);

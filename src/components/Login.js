@@ -80,52 +80,54 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div>
-        <h1>Sign in Here</h1>
-      </div>
-
-      <div className="messages">{errorMessage()}</div>
-
-      <form>
-        {/* Labels and inputs for form data */}
-
-        <label className="label">Email</label>
-        <input
-          onChange={handleEmail}
-          className="input"
-          value={email}
-          placeholder={"Email"}
-          type="email"
-        />
-
-        <label className="label">Password</label>
-        <input
-          onChange={handlePassword}
-          className="input"
-          value={password}
-          placeholder={"Password"}
-          type="password"
-        />
-
-        <div className="loginbtn">
-          <Button
-            color={"rgb(222 214 211)"}
-            text={"Login"}
-            onClick={handleSubmit}
-          />
-        </div>
+    <div className="background">
+      <div className="container ">
         <div>
-          <h1>Don't Have an account?</h1>
-          <h2
-            role="button"
-            style={{ cursor: "pointer" }}
-            onClick={() => register()}
-          >
-            Register
-          </h2>
+          <h1>Sign in Here</h1>
         </div>
-      </form>
+
+        <div className="messages">{errorMessage()}</div>
+
+        <form>
+          {/* Labels and inputs for form data */}
+
+          <label className="label">Email</label>
+          <input
+            onChange={handleEmail}
+            className="input"
+            value={email}
+            placeholder={"Email"}
+            type="email"
+          />
+
+          <label className="label">Password</label>
+          <input
+            onChange={handlePassword}
+            className="input"
+            value={password}
+            placeholder={"Password"}
+            type="password"
+          />
+
+          <div className="loginbtn">
+            <Button
+              color={"rgb(222 214 211)"}
+              text={"Login"}
+              onClick={handleSubmit}
+            />
+          </div>
+          <div>
+            <h1>Don't Have an account?</h1>
+            <h2
+              role="button"
+              style={{ cursor: "pointer" }}
+              onClick={() => register()}
+            >
+              Register
+            </h2>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
