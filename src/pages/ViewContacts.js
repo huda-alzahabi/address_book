@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
@@ -27,6 +26,10 @@ const ViewContacts = () => {
     nav("/AddContact");
   };
 
+  const editContact = (id) => {
+    nav("/EditContact", { state: { id } });
+  };
+
   return (
     <div className="contactsbg">
       <table>
@@ -48,10 +51,7 @@ const ViewContacts = () => {
               {contact.location.coordinates[1]})
             </td>
             <td>
-              <FaEdit />
-            </td>
-            <td>
-              <MdDeleteForever />
+              <FaEdit role="button" onClick={() => editContact(contact._id)} />
             </td>
           </tr>
         ))}
