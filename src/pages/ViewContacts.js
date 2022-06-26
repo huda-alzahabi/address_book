@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
@@ -12,13 +13,12 @@ const ViewContacts = () => {
     const data = await res.json();
     return data;
   };
-
+  const getData = async () => {
+    const contactsFromServer = await getContacts();
+    setContacts(contactsFromServer);
+  };
   //Get Contacts of the user
   useEffect(() => {
-    const getData = async () => {
-      const contactsFromServer = await getContacts();
-      setContacts(contactsFromServer);
-    };
     getData();
   }, []);
 
@@ -28,6 +28,16 @@ const ViewContacts = () => {
 
   const editContact = (id) => {
     nav("/EditContact", { state: { id } });
+  };
+  const deleteContact = async (id) => {
+    await fetch(`http://127.0.0.1:3030/api/contact?id=` + id, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    alert("Contact Successfully Deleted");
+    getData();
   };
 
   return (
@@ -52,6 +62,12 @@ const ViewContacts = () => {
             </td>
             <td>
               <FaEdit role="button" onClick={() => editContact(contact._id)} />
+            </td>
+            <td>
+              <MdDeleteForever
+                role="button"
+                onClick={() => deleteContact(contact._id)}
+              />
             </td>
           </tr>
         ))}
