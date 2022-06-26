@@ -111,7 +111,7 @@ const AddContact = () => {
     await fetch("http://127.0.0.1:3030/api/contact", {
       method: "POST",
       headers: {
-        Accept: "application/form-data",
+        "x-access-token": localStorage.getItem("Bearer"),
         "Content-Type": "application/json",
       },
       body: JSON.stringify(_data),

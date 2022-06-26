@@ -100,6 +100,7 @@ const EditContact = () => {
     await fetch(`http://127.0.0.1:3030/api/contact/update?id=` + contact_id, {
       method: "POST",
       headers: {
+        "x-access-token": localStorage.getItem("Bearer"),
         "Content-Type": "application/json",
       },
       body: JSON.stringify(_data),

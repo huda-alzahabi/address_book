@@ -38,6 +38,7 @@ const ViewContacts = () => {
     await fetch(`http://127.0.0.1:3030/api/contact?id=` + id, {
       method: "delete",
       headers: {
+        "x-access-token": localStorage.getItem("Bearer"),
         "Content-Type": "application/json",
       },
     });
