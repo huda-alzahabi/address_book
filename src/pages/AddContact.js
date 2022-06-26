@@ -62,12 +62,6 @@ const AddContact = () => {
     setSubmitted(false);
   };
 
-  // // Handling the location change
-  // const handleLocation = (e) => {
-  //   setLocation(e.target.value);
-  //   setSubmitted(false);
-  // };
-
   // Handling the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -144,8 +138,8 @@ const AddContact = () => {
   };
 
   return (
-    <div className="background">
-      <div className="container">
+    <div className="contactsbg" style={{ height: "max-content" }}>
+      <div className="contacts_container">
         <div>
           <h1>New Contact</h1>
         </div>

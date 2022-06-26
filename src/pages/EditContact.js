@@ -134,8 +134,8 @@ const EditContact = () => {
   };
 
   return (
-    <div className="background">
-      <div className="container">
+    <div className="contactsbg" style={{ height: "max-content" }}>
+      <div className="contacts_container">
         <div>
           <h1>Edit Contact</h1>
         </div>
