@@ -97,7 +97,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="background">
+    <div className="background" style={{ height: "-webkit-fill-available" }}>
       <div className="container">
         <div>
           <h1>User Registration</h1>
