@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../components/Button";
+import Map from "../components/Map";
 
 const EditContact = () => {
   const nav = useNavigate();
@@ -16,6 +17,30 @@ const EditContact = () => {
   const [relationship_status, setRelationship] = useState("");
   const [location, setLocation] = useState({});
 
+  //Location
+  const [selectedPosition, setSelectedPosition] = useState([
+    33.893791, 35.501778,
+  ]);
+  const [locationName, setLocationName] = useState("");
+
+  //Get Location Name
+  const getName = async (e) => {
+    try {
+      const res = await fetch(
+        "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" +
+          selectedPosition[0] +
+          "&longitude=" +
+          selectedPosition[1] +
+          "&localityLanguage=en"
+      );
+      const data = await res.json();
+      console.log(data);
+      setLocationName("" + data.locality + ", " + data.countryName);
+      setLocation("" + data.locality + ", " + data.countryName);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const getContactInfo = async () => {
     const res = await fetch(
       " http://127.0.0.1:3030/api/contact/ById?id=" + contact_id
@@ -88,6 +113,7 @@ const EditContact = () => {
 
   //Sending the user to the users table in the db
   const editContact = async () => {
+    setLocation({ locationName });
     let _data = {
       full_name,
       email,
@@ -124,7 +150,6 @@ const EditContact = () => {
             placeholder={"Full Name"}
             type="text"
           />
-
           <label className="label">Email</label>
           <input
             onChange={handleEmail}
@@ -133,7 +158,6 @@ const EditContact = () => {
             placeholder={"Email"}
             type="email"
           />
-
           <label className="label">Phone Number</label>
           <input
             onChange={handleNumber}
@@ -150,13 +174,21 @@ const EditContact = () => {
             placeholder={"Relationship Status"}
             type="text"
           />
-          <label className="label">Location</label>
+          <label className="label">Old Location</label>
           <input
-            onChange={handleLocation}
             className="input"
             value={location}
             placeholder={"Location"}
             type="text"
+          />{" "}
+          <label>New Location</label>
+          <br />
+          <span>{locationName}</span>
+          <Map
+            selectedPosition={selectedPosition}
+            setSelectedPosition={setSelectedPosition}
+            getName={getName}
+            setLocationName={setLocationName}
           />
           <div className="centerbtn">
             <Button
