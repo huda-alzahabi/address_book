@@ -7,6 +7,10 @@ import Button from "../components/Button";
 const ViewContacts = () => {
   const nav = useNavigate();
   const [contacts, setContacts] = useState([]);
+  const [option_id, setId] = useState("");
+
+  const [contactsFiltered, setFiltered] = useState([]);
+
   const user_id = localStorage.getItem("user_id");
   const getContacts = async () => {
     const res = await fetch(`http://127.0.0.1:3030/api/contact?id=` + user_id);
@@ -16,6 +20,7 @@ const ViewContacts = () => {
   const getData = async () => {
     const contactsFromServer = await getContacts();
     setContacts(contactsFromServer);
+    setFiltered(contactsFromServer);
   };
   //Get Contacts of the user
   useEffect(() => {
@@ -39,9 +44,32 @@ const ViewContacts = () => {
     alert("Contact Successfully Deleted");
     getData();
   };
+  const filterContacts = (e) => {
+    let value = e.target.value.toLowerCase();
+    let result = [];
+    result = contactsFiltered.filter((contacts) => {
+      return (
+        contacts.full_name.search(value) != -1 ||
+        contacts.phone_number.search(value) != -1 ||
+        contacts.email.search(value) != -1 ||
+        contacts.relationship_status.search(value) != -1
+      );
+    });
+    setContacts(result);
+  };
 
   return (
     <div className="contactsbg">
+      <div className="filter">
+        <label className="search">
+          Filter Search{" "}
+          <input
+            className="box"
+            type="text"
+            onChange={(e) => filterContacts(e)}
+          />
+        </label>
+      </div>
       <table>
         <thead>
           <tr>
