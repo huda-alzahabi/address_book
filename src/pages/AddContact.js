@@ -116,6 +116,7 @@ const AddContact = () => {
       },
       body: JSON.stringify(_data),
     });
+    alert("Contact Successfully Added");
     nav("/Contacts");
   };
 
