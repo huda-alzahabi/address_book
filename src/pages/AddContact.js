@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-
+import Map from "../components/Map";
 const AddContact = () => {
   const nav = useNavigate();
   // States for adding a new contact
@@ -9,12 +9,35 @@ const AddContact = () => {
   const [email, setEmail] = useState("");
   const [phone_number, setNumber] = useState("");
   const [relationship_status, setRelationship] = useState("");
-  const [location, setLocation] = useState([]);
+  //const [location, setLocation] = useState([]);
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
+  //Location
+  const [selectedPosition, setSelectedPosition] = useState([
+    33.893791, 35.501778,
+  ]);
+  const [locationName, setLocationName] = useState("");
+
+  //Get Location Name
+  const getName = async (e) => {
+    try {
+      const res = await fetch(
+        "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" +
+          selectedPosition[0] +
+          "&longitude=" +
+          selectedPosition[1] +
+          "&localityLanguage=en"
+      );
+      const data = await res.json();
+      console.log(data);
+      setLocationName("" + data.locality + ", " + data.countryName);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // Handling the name change
   const handleName = (e) => {
     setName(e.target.value);
@@ -39,11 +62,11 @@ const AddContact = () => {
     setSubmitted(false);
   };
 
-  // Handling the location change
-  const handleLocation = (e) => {
-    setLocation(e.target.value);
-    setSubmitted(false);
-  };
+  // // Handling the location change
+  // const handleLocation = (e) => {
+  //   setLocation(e.target.value);
+  //   setSubmitted(false);
+  // };
 
   // Handling the form submission
   const handleSubmit = (e) => {
@@ -52,8 +75,8 @@ const AddContact = () => {
       full_name === "" ||
       email === "" ||
       phone_number === "" ||
-      relationship_status === "" ||
-      location === []
+      relationship_status === ""
+      // location === []
     ) {
       setError(true);
     } else {
@@ -62,7 +85,7 @@ const AddContact = () => {
       setEmail("");
       setNumber("");
       setRelationship("");
-      setLocation([]);
+      // setLocation([]);
       setSubmitted(true);
       setError(false);
     }
@@ -104,7 +127,7 @@ const AddContact = () => {
       email,
       phone_number,
       relationship_status,
-      location,
+      location: locationName,
       user: localStorage.getItem("user_id"),
     };
 
@@ -169,13 +192,14 @@ const AddContact = () => {
             placeholder={"Relationship Status"}
             type="text"
           />
-          <label className="label">Location</label>
-          <input
-            onChange={handleLocation}
-            className="input"
-            value={location}
-            placeholder={"Location"}
-            type="text"
+          <label>Location</label>
+          <br />
+          <span>{locationName}</span>
+          <Map
+            selectedPosition={selectedPosition}
+            setSelectedPosition={setSelectedPosition}
+            getName={getName}
+            setLocationName={setLocationName}
           />
           <div className="centerbtn">
             <Button
