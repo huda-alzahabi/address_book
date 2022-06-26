@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import ViewContacts from "./pages/ViewContacts";
 import AddContact from "./pages/AddContact";
 import EditContact from "./pages/EditContact";
+import Map from "./components/Map";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/Contacts" element={<ViewContacts />}></Route>
           <Route path="/AddContact" element={<AddContact />}></Route>
           <Route path="/EditContact" element={<EditContact />}></Route>
+          <Route path="/Location" element={<Map />}></Route>
         </Routes>
       </>
     </BrowserRouter>
