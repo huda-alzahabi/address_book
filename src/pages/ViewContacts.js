@@ -7,7 +7,6 @@ import Button from "../components/Button";
 const ViewContacts = () => {
   const nav = useNavigate();
   const [contacts, setContacts] = useState([]);
-  const [option_id, setId] = useState("");
 
   const [contactsFiltered, setFiltered] = useState([]);
 
@@ -53,10 +52,13 @@ const ViewContacts = () => {
         contacts.full_name.search(value) != -1 ||
         contacts.phone_number.search(value) != -1 ||
         contacts.email.search(value) != -1 ||
-        contacts.relationship_status.search(value) != -1
+        contacts.relationship_status.search(value) != -1 ||
+        contacts.location.search(value) != -1
       );
     });
+
     setContacts(result);
+    console.log(contacts.email.search(value));
   };
 
   return (
@@ -88,10 +90,7 @@ const ViewContacts = () => {
               <td>{contact.email} </td>
               <td>{contact.phone_number}</td>
               <td>{contact.relationship_status}</td>
-              <td>
-                ({contact.location.coordinates[0]},{" "}
-                {contact.location.coordinates[1]})
-              </td>
+              <td>{contact.location}</td>
               <td>
                 <FaEdit
                   role="button"
