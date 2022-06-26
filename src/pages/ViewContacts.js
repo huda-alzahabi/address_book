@@ -43,34 +43,41 @@ const ViewContacts = () => {
   return (
     <div className="contactsbg">
       <table>
-        <tr>
-          <th>Full Name</th>
-          <th>Email</th>
-          <th>Phone Number</th>
-          <th>Relationship Status</th>
-          <th>Location</th>
-        </tr>
-        {contacts.map((contact, i) => (
-          <tr key={i}>
-            <td>{contact.full_name} </td>
-            <td>{contact.email} </td>
-            <td>{contact.phone_number}</td>
-            <td>{contact.relationship_status}</td>
-            <td>
-              ({contact.location.coordinates[0]},{" "}
-              {contact.location.coordinates[1]})
-            </td>
-            <td>
-              <FaEdit role="button" onClick={() => editContact(contact._id)} />
-            </td>
-            <td>
-              <MdDeleteForever
-                role="button"
-                onClick={() => deleteContact(contact._id)}
-              />
-            </td>
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Relationship Status</th>
+            <th>Location</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {contacts.map((contact, i) => (
+            <tr key={i}>
+              <td>{contact.full_name} </td>
+              <td>{contact.email} </td>
+              <td>{contact.phone_number}</td>
+              <td>{contact.relationship_status}</td>
+              <td>
+                ({contact.location.coordinates[0]},{" "}
+                {contact.location.coordinates[1]})
+              </td>
+              <td>
+                <FaEdit
+                  role="button"
+                  onClick={() => editContact(contact._id)}
+                />
+              </td>
+              <td>
+                <MdDeleteForever
+                  role="button"
+                  onClick={() => deleteContact(contact._id)}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
       <div className="centerbtn">
         <Button
