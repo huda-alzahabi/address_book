@@ -75,7 +75,7 @@ const Login = () => {
     window.localStorage.setItem("Bearer", result.token);
     var user = jwt_decode(result.token);
     window.localStorage.setItem("user_id", user._id);
-    console.log(user);
+    console.log(user); 
     nav("/Contacts");
   };
 

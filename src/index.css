@@ -179,3 +179,12 @@
     .box:focus {
         background-color: wheat;
     }
+    
+    .logout {
+        float: right;
+        color: #916f5d;
+        margin-right: 80px;
+        height: 40px;
+        width: 40px;
+        color: #916f5d;
+    }

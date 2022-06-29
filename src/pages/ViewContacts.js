@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever, MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
@@ -60,6 +60,11 @@ const ViewContacts = () => {
     setContacts(result);
     console.log(contacts.email.search(value));
   };
+  const logout = () => {
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("Bearer");
+    nav("/");
+  };
 
   return (
     <div className="contactsbg">
@@ -71,8 +76,9 @@ const ViewContacts = () => {
             type="text"
             onChange={(e) => filterContacts(e)}
           />
-        </label>
-      </div>
+        </label>{" "}
+        <MdLogout className="logout" role="button" onClick={logout} />
+      </div>{" "}
       <table>
         <thead>
           <tr>
